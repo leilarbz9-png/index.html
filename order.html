@@ -2,394 +2,346 @@
 <html lang="ar" dir="rtl">
 
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Léa Délice | تأكيد الطلب</title>
+<title>تأكيد الطلب - Léa Délice</title>
 
 <style>
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
 body {
+    margin: 0;
     font-family: Arial, sans-serif;
-    background: #fff8f5;
-    color: #4b2630;
+    background: #fff7f9;
+    color: #4a2c35;
 }
-
-/* NAV */
 
 nav {
-    background: white;
-    padding: 18px 7%;
+    background: #ff7f9c;
+    padding: 18px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 3px 15px rgba(0,0,0,0.08);
-}
-
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: #914056;
 }
 
 nav a {
+    color: white;
     text-decoration: none;
-    color: #914056;
     font-weight: bold;
 }
 
-/* HEADER */
-
-.header {
-    text-align: center;
-    padding: 55px 20px 30px;
-}
-
-.header h1 {
-    color: #914056;
-    font-size: 38px;
-    margin-bottom: 12px;
-}
-
-.header p {
-    color: #76565e;
-}
-
-/* MAIN */
-
 .container {
-    width: 90%;
-    max-width: 850px;
-    margin: auto;
-    padding-bottom: 70px;
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 20px;
 }
 
-/* FORM */
+h1, h2 {
+    text-align: center;
+}
 
-.form-box,
-.order-summary {
+.box {
     background: white;
-    padding: 30px;
-    border-radius: 22px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.07);
-    margin-bottom: 25px;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    margin-bottom: 20px;
 }
 
-.form-box h2,
-.order-summary h2 {
-    color: #914056;
-    margin-bottom: 25px;
+.product {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.total {
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
 }
 
 label {
     display: block;
-    margin-bottom: 8px;
+    margin-top: 15px;
     font-weight: bold;
-    color: #5d3942;
 }
 
-input,
-select,
-textarea {
+input, textarea, select {
     width: 100%;
-    padding: 14px;
-    border: 1px solid #e5cbd2;
-    border-radius: 12px;
-    margin-bottom: 18px;
+    box-sizing: border-box;
+    padding: 13px;
+    margin-top: 7px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
     font-size: 16px;
-    font-family: Arial, sans-serif;
-    outline: none;
-}
-
-input:focus,
-select:focus,
-textarea:focus {
-    border-color: #914056;
 }
 
 textarea {
-    min-height: 100px;
+    height: 90px;
     resize: vertical;
 }
 
-/* DELIVERY */
-
-.delivery-options {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-    margin-bottom: 20px;
+.delivery {
+    margin-top: 15px;
 }
 
-.delivery-option {
-    border: 2px solid #efdce1;
-    border-radius: 15px;
-    padding: 18px;
-    text-align: center;
-    cursor: pointer;
+.delivery label {
+    display: inline-block;
+    margin-left: 20px;
+    font-weight: normal;
 }
 
-.delivery-option input {
+.delivery input {
     width: auto;
-    margin: 0 5px 0 0;
 }
 
-.delivery-option:hover {
-    border-color: #914056;
-}
-
-/* SUMMARY */
-
-.order-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 0;
-    border-bottom: 1px solid #f0dfe3;
-}
-
-.total {
-    margin-top: 20px;
-    font-size: 22px;
-    font-weight: bold;
-    color: #914056;
-}
-
-/* BUTTON */
-
-.submit-btn {
+button {
     width: 100%;
+    padding: 15px;
+    margin-top: 25px;
     border: none;
-    background: #914056;
+    border-radius: 12px;
+    background: #ff5f85;
     color: white;
-    padding: 16px;
-    border-radius: 30px;
     font-size: 18px;
     font-weight: bold;
     cursor: pointer;
-    transition: 0.3s;
 }
-
-.submit-btn:hover {
-    background: #743246;
-    transform: translateY(-2px);
-}
-
-/* SUCCESS */
 
 .success {
     display: none;
     text-align: center;
-    background: white;
-    padding: 40px 25px;
-    border-radius: 22px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.07);
-}
-
-.success .icon {
-    font-size: 60px;
-    margin-bottom: 15px;
+    background: #fff;
+    padding: 35px 20px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
 }
 
 .success h2 {
-    color: #914056;
-    margin-bottom: 15px;
+    color: #e85d75;
 }
 
-.success p {
-    color: #76565e;
-    line-height: 1.8;
-}
-
-.home-btn {
+.back {
     display: inline-block;
-    margin-top: 25px;
-    background: #914056;
-    color: white;
-    padding: 13px 28px;
-    border-radius: 25px;
+    margin-top: 20px;
+    color: #e85d75;
     text-decoration: none;
+    font-weight: bold;
 }
-
-/* FOOTER */
-
-footer {
-    background: #3d2028;
-    color: white;
-    text-align: center;
-    padding: 25px;
-}
-
-/* MOBILE */
-
-@media (max-width: 600px) {
-
-    .header h1 {
-        font-size: 31px;
-    }
-
-    .form-box,
-    .order-summary {
-        padding: 22px;
-    }
-
-    .delivery-options {
-        grid-template-columns: 1fr;
-    }
-
-}
-
 </style>
-
 </head>
 
 <body>
 
-
 <nav>
-
-    <div class="logo">
-        🍰 Léa Délice
-    </div>
-
-    <a href="products.html">
-        🛒 المنتجات
-    </a>
-
+    <a href="index.html">🍰 Léa Délice</a>
+    <a href="products.html">العودة للحلويات</a>
 </nav>
-
-
-<section class="header">
-
-    <h1>
-        تأكيد طلبك 🛍️
-    </h1>
-
-    <p>
-        املئي معلوماتك وسنتواصل معك لتأكيد الطلب ❤️
-    </p>
-
-</section>
-
 
 <div class="container">
 
+    <h1>🛍️ تأكيد طلبك</h1>
 
-    <!-- ORDER SUMMARY -->
+    <!-- ملخص الطلب -->
+    <div class="box">
+        <h2>🍰 طلبك</h2>
 
-    <section class="order-summary">
-
-        <h2>
-            🛒 ملخص طلبك
-        </h2>
-
-        <div id="orderItems">
-
-            لا توجد منتجات في الطلب.
-
-        </div>
+        <div id="orderItems"></div>
 
         <div class="total">
-
-            المجموع:
-            <span id="orderTotal">0</span>
-            دج
-
+            المجموع: <span id="orderTotal">0</span> دج
         </div>
+    </div>
 
-    </section>
+    <!-- معلومات الزبون -->
+    <div class="box" id="customerFormBox">
 
-
-    <!-- CUSTOMER FORM -->
-
-    <section class="form-box">
-
-        <h2>
-            👤 معلومات الزبون
-        </h2>
-
+        <h2>👤 معلومات الزبون</h2>
 
         <form id="orderForm">
 
-
             <label>
-                الاسم واللقب
+                الاسم الكامل
+                <input type="text" id="name" required>
             </label>
-
-            <input
-                type="text"
-                id="name"
-                placeholder="اكتبي اسمك ولقبك"
-                required
-            >
-
 
             <label>
                 رقم الهاتف
+                <input type="tel" id="phone" required>
             </label>
-
-            <input
-                type="tel"
-                id="phone"
-                placeholder="مثال: 0550123456"
-                required
-            >
-
 
             <label>
                 الولاية
+                <input type="text" id="wilaya" required>
             </label>
-
-            <input
-                type="text"
-                id="wilaya"
-                placeholder="اكتبي الولاية"
-                required
-            >
-
 
             <label>
                 البلدية
+                <input type="text" id="commune" required>
             </label>
-
-            <input
-                type="text"
-                id="commune"
-                placeholder="اكتبي البلدية"
-                required
-            >
-
 
             <label>
-                العنوان بالتفصيل
+                العنوان
+                <input type="text" id="address" required>
             </label>
 
-            <textarea
-                id="address"
-                placeholder="الحي، الشارع، رقم المنزل..."
-                required
-            ></textarea>
+            <label>طريقة التوصيل</label>
 
+            <div class="delivery">
+
+                <label>
+                    <input type="radio"
+                           name="delivery"
+                           value="المنزل"
+                           checked>
+                    🏠 إلى المنزل
+                </label>
+
+                <label>
+                    <input type="radio"
+                           name="delivery"
+                           value="المكتب">
+                    🏢 إلى المكتب
+                </label>
+
+            </div>
 
             <label>
-                طريقة الاستلام
+                ملاحظات إضافية
+                <textarea id="notes"
+                          placeholder="مثلاً: بدون سكر، وقت مناسب للتوصيل..."></textarea>
             </label>
 
+            <button type="submit">
+                ✅ إرسال الطلب
+            </button>
 
-            <div class="delivery-options">
+        </form>
+
+    </div>
+
+    <!-- رسالة النجاح -->
+    <div class="success" id="successBox">
+
+        <h2>🎉 تم تجهيز طلبك!</h2>
+
+        <p>
+            شكرًا لطلبك من Léa Délice ❤️
+        </p>
+
+        <p>
+            سنتواصل معك لتأكيد الطلب والتوصيل.
+        </p>
+
+        <a class="back" href="products.html">
+            🍰 العودة إلى الحلويات
+        </a>
+
+    </div>
+
+</div>
+
+<script>
+
+let cart = JSON.parse(localStorage.getItem("leaCart")) || [];
+
+const orderItems = document.getElementById("orderItems");
+const orderTotal = document.getElementById("orderTotal");
+
+/* عرض المنتجات */
+
+if (cart.length === 0) {
+
+    orderItems.innerHTML =
+        "<p style='text-align:center;'>السلة فارغة حاليًا.</p>";
+
+} else {
+
+    let total = 0;
+    let html = "";
+
+    cart.forEach(function(item) {
+
+        total += Number(item.price);
+
+        html += `
+            <div class="product">
+                <span>${item.name}</span>
+                <span>${item.price} دج</span>
+            </div>
+        `;
+
+    });
+
+    orderItems.innerHTML = html;
+    orderTotal.textContent = total;
+}
 
 
-                <label class="delivery-option">
+/* إرسال الطلب */
 
-                    <input
-                        type="radio"
-                        name="delivery"
-                       
+document.getElementById("orderForm").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    if (cart.length === 0) {
+
+        alert("السلة فارغة! أضيفي منتجًا أولًا.");
+        return;
+
+    }
+
+    const name = document.getElementById("name").value;
+    const phone = document.getElementById("phone").value;
+    const wilaya = document.getElementById("wilaya").value;
+    const commune = document.getElementById("commune").value;
+    const address = document.getElementById("address").value;
+    const notes = document.getElementById("notes").value;
+
+    const delivery =
+        document.querySelector(
+            'input[name="delivery"]:checked'
+        ).value;
+
+    const order = {
+
+        name: name,
+        phone: phone,
+        wilaya: wilaya,
+        commune: commune,
+        address: address,
+        delivery: delivery,
+        notes: notes,
+        products: cart,
+        total: cart.reduce(
+            (sum, item) => sum + Number(item.price),
+            0
+        ),
+        date: new Date().toLocaleString("ar-DZ")
+
+    };
+
+    localStorage.setItem(
+        "lastOrder",
+        JSON.stringify(order)
+    );
+
+    /* إخفاء نموذج المعلومات */
+
+    document.getElementById("customerFormBox").style.display = "none";
+
+    /* إظهار رسالة النجاح */
+
+    document.getElementById("successBox").style.display = "block";
+
+    /* حذف السلة */
+
+    localStorage.removeItem("leaCart");
+
+});
+
+</script>
+
+</body>
+</html>
