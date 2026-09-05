@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Léa Délice | تأكيد الطلب</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #fff8f5;
+    color: #4b2630;
+}
+
+/* NAV */
+
+nav {
+    background: white;
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #914056;
+}
+
+nav a {
+    text-decoration: none;
+    color: #914056;
+    font-weight: bold;
+}
+
+/* HEADER */
+
+.header {
+    text-align: center;
+    padding: 55px 20px 30px;
+}
+
+.header h1 {
+    color: #914056;
+    font-size: 38px;
+    margin-bottom: 12px;
+}
+
+.header p {
+    color: #76565e;
+}
+
+/* MAIN */
+
+.container {
+    width: 90%;
+    max-width: 850px;
+    margin: auto;
+    padding-bottom: 70px;
+}
+
+/* FORM */
+
+.form-box,
+.order-summary {
+    background: white;
+    padding: 30px;
+    border-radius: 22px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+    margin-bottom: 25px;
+}
+
+.form-box h2,
+.order-summary h2 {
+    color: #914056;
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #5d3942;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #e5cbd2;
+    border-radius: 12px;
+    margin-bottom: 18px;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    outline: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #914056;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* DELIVERY */
+
+.delivery-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.delivery-option {
+    border: 2px solid #efdce1;
+    border-radius: 15px;
+    padding: 18px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.delivery-option input {
+    width: auto;
+    margin: 0 5px 0 0;
+}
+
+.delivery-option:hover {
+    border-color: #914056;
+}
+
+/* SUMMARY */
+
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #f0dfe3;
+}
+
+.total {
+    margin-top: 20px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #914056;
+}
+
+/* BUTTON */
+
+.submit-btn {
+    width: 100%;
+    border: none;
+    background: #914056;
+    color: white;
+    padding: 16px;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.submit-btn:hover {
+    background: #743246;
+    transform: translateY(-2px);
+}
+
+/* SUCCESS */
+
+.success {
+    display: none;
+    text-align: center;
+    background: white;
+    padding: 40px 25px;
+    border-radius: 22px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+}
+
+.success .icon {
+    font-size: 60px;
+    margin-bottom: 15px;
+}
+
+.success h2 {
+    color: #914056;
+    margin-bottom: 15px;
+}
+
+.success p {
+    color: #76565e;
+    line-height: 1.8;
+}
+
+.home-btn {
+    display: inline-block;
+    margin-top: 25px;
+    background: #914056;
+    color: white;
+    padding: 13px 28px;
+    border-radius: 25px;
+    text-decoration: none;
+}
+
+/* FOOTER */
+
+footer {
+    background: #3d2028;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .header h1 {
+        font-size: 31px;
+    }
+
+    .form-box,
+    .order-summary {
+        padding: 22px;
+    }
+
+    .delivery-options {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<nav>
+
+    <div class="logo">
+        🍰 Léa Délice
+    </div>
+
+    <a href="products.html">
+        🛒 المنتجات
+    </a>
+
+</nav>
+
+
+<section class="header">
+
+    <h1>
+        تأكيد طلبك 🛍️
+    </h1>
+
+    <p>
+        املئي معلوماتك وسنتواصل معك لتأكيد الطلب ❤️
+    </p>
+
+</section>
+
+
+<div class="container">
+
+
+    <!-- ORDER SUMMARY -->
+
+    <section class="order-summary">
+
+        <h2>
+            🛒 ملخص طلبك
+        </h2>
+
+        <div id="orderItems">
+
+            لا توجد منتجات في الطلب.
+
+        </div>
+
+        <div class="total">
+
+            المجموع:
+            <span id="orderTotal">0</span>
+            دج
+
+        </div>
+
+    </section>
+
+
+    <!-- CUSTOMER FORM -->
+
+    <section class="form-box">
+
+        <h2>
+            👤 معلومات الزبون
+        </h2>
+
+
+        <form id="orderForm">
+
+
+            <label>
+                الاسم واللقب
+            </label>
+
+            <input
+                type="text"
+                id="name"
+                placeholder="اكتبي اسمك ولقبك"
+                required
+            >
+
+
+            <label>
+                رقم الهاتف
+            </label>
+
+            <input
+                type="tel"
+                id="phone"
+                placeholder="مثال: 0550123456"
+                required
+            >
+
+
+            <label>
+                الولاية
+            </label>
+
+            <input
+                type="text"
+                id="wilaya"
+                placeholder="اكتبي الولاية"
+                required
+            >
+
+
+            <label>
+                البلدية
+            </label>
+
+            <input
+                type="text"
+                id="commune"
+                placeholder="اكتبي البلدية"
+                required
+            >
+
+
+            <label>
+                العنوان بالتفصيل
+            </label>
+
+            <textarea
+                id="address"
+                placeholder="الحي، الشارع، رقم المنزل..."
+                required
+            ></textarea>
+
+
+            <label>
+                طريقة الاستلام
+            </label>
+
+
+            <div class="delivery-options">
+
+
+                <label class="delivery-option">
+
+                    <input
+                        type="radio"
+                        name="delivery"
+                       
