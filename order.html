@@ -225,6 +225,7 @@ const orderTotal =
 
 let total = 0;
 
+
 /* عرض المنتجات */
 
 if (cart.length === 0) {
@@ -315,8 +316,23 @@ document.getElementById("orderForm")
 
 
     /*
+      إنشاء iframe جديد لكل طلب
+    */
+
+    const frameName =
+        "frame_" + Date.now();
+
+    const iframe =
+        document.createElement("iframe");
+
+    iframe.name = frameName;
+    iframe.style.display = "none";
+
+    document.body.appendChild(iframe);
+
+
+    /*
       إنشاء نموذج مخفي
-      وإرساله مباشرة إلى Google Apps Script
     */
 
     const form =
@@ -324,17 +340,17 @@ document.getElementById("orderForm")
 
     form.method = "POST";
     form.action = SCRIPT_URL;
-    form.target = "hiddenFrame";
+    form.target = frameName;
     form.style.display = "none";
 
 
-    function addField(name, value) {
+    function addField(fieldName, value) {
 
         const input =
             document.createElement("input");
 
         input.type = "hidden";
-        input.name = name;
+        input.name = fieldName;
         input.value = value;
 
         form.appendChild(input);
@@ -352,7 +368,7 @@ document.getElementById("orderForm")
 
 
     /*
-      إرسال البيانات
+      إرسال الطلب
     */
 
     form.submit();
@@ -398,16 +414,18 @@ document.getElementById("orderForm")
 
         localStorage.removeItem("leaCart");
 
-    }, 1000);
+        /*
+          تنظيف النموذج والإطار
+        */
+
+        form.remove();
+        iframe.remove();
+
+    }, 2000);
 
 });
 
 </script>
-
-<iframe
-    name="hiddenFrame"
-    style="display:none;">
-</iframe>
 
 </body>
 </html>
