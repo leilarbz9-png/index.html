@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>حلويات ليلى</title>
+    <title>Léa Délice | حلويات تُصنع بحب</title>
 
     <style>
         body {
@@ -13,6 +13,7 @@
             font-family: Arial, sans-serif;
             background: #fff8f5;
             text-align: center;
+            color: #333;
         }
 
         header {
@@ -24,9 +25,12 @@
             margin-bottom: 15px;
         }
 
-        p {
+        header p {
             font-size: 20px;
-            color: #555;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            line-height: 1.8;
         }
 
         button {
@@ -36,6 +40,58 @@
             font-size: 18px;
             cursor: pointer;
         }
+
+        section {
+            padding: 50px 20px;
+        }
+
+        h2 {
+            font-size: 32px;
+            margin-bottom: 35px;
+        }
+
+        .products {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .product {
+            background: white;
+            width: 250px;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .product h3 {
+            font-size: 22px;
+        }
+
+        .product p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .price {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 35px;
+            }
+
+            header {
+                padding: 60px 20px;
+            }
+
+            .product {
+                width: 85%;
+            }
+        }
     </style>
 </head>
 
@@ -43,10 +99,12 @@
 
     <header>
 
-        <h1>🍰 حلويات ليلى</h1>
+        <h1>🍰 Léa Délice</h1>
 
         <p>
-            أشهى الحلويات المصنوعة بحب ❤️
+            حلويات تُصنع بحب ❤️
+            <br>
+            نكهات مميزة، تفاصيل جميلة، ولحظات تستحق أن تُحتفل بها.
         </p>
 
         <button>
@@ -54,6 +112,49 @@
         </button>
 
     </header>
+
+
+    <section>
+
+        <h2>حلوياتنا 🍰</h2>
+
+        <div class="products">
+
+            <div class="product">
+                <h3>🍓 كيك الفراولة</h3>
+                <p>
+                    كيك طازج ولذيذ بالفراولة
+                </p>
+                <div class="price">
+                    800 دج
+                </div>
+            </div>
+
+
+            <div class="product">
+                <h3>🍫 كيك الشوكولاتة</h3>
+                <p>
+                    شوكولاتة غنية لعشاق الحلويات
+                </p>
+                <div class="price">
+                    900 دج
+                </div>
+            </div>
+
+
+            <div class="product">
+                <h3>🧁 كب كيك</h3>
+                <p>
+                    كب كيك صغير ولذيذ
+                </p>
+                <div class="price">
+                    150 دج
+                </div>
+            </div>
+
+        </div>
+
+    </section>
 
 </body>
 
