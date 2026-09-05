@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Léa Délice | قائمتنا</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #fff8f5;
+    color: #4b2630;
+}
+
+/* NAV */
+
+nav {
+    background: white;
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #914056;
+}
+
+nav a {
+    text-decoration: none;
+    color: #914056;
+    font-weight: bold;
+}
+
+/* HEADER */
+
+.header {
+    text-align: center;
+    padding: 65px 20px 40px;
+    background:
+        radial-gradient(circle at top left, #ffe1e8, transparent 35%),
+        radial-gradient(circle at bottom right, #ffe9c9, transparent 35%),
+        #fff8f5;
+}
+
+.header h1 {
+    color: #914056;
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.header p {
+    color: #76565e;
+    font-size: 17px;
+}
+
+/* PRODUCTS */
+
+.products {
+    padding: 40px 7% 80px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+.product {
+    background: white;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.product:hover {
+    transform: translateY(-7px);
+}
+
+.product img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    display: block;
+}
+
+.product-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.product-info h2 {
+    color: #914056;
+    margin-bottom: 10px;
+}
+
+.description {
+    color: #76565e;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.price {
+    color: #914056;
+    font-size: 21px;
+    font-weight: bold;
+    margin-bottom: 18px;
+}
+
+.cart-btn {
+    border: none;
+    background: #914056;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cart-btn:hover {
+    background: #743246;
+    transform: scale(1.03);
+}
+
+/* CART */
+
+.cart {
+    background: white;
+    margin: 0 7% 60px;
+    padding: 30px;
+    border-radius: 22px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+}
+
+.cart h2 {
+    color: #914056;
+    margin-bottom: 20px;
+}
+
+#cartItems {
+    margin-bottom: 20px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #f0dfe3;
+}
+
+.remove-btn {
+    border: none;
+    background: #f3c3ce;
+    color: #743246;
+    padding: 6px 12px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.total {
+    font-size: 22px;
+    font-weight: bold;
+    color: #914056;
+    margin-top: 20px;
+}
+
+.order-btn {
+    display: inline-block;
+    margin-top: 20px;
+    background: #914056;
+    color: white;
+    padding: 14px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* FOOTER */
+
+footer {
+    background: #3d2028;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 550px) {
+
+    .products {
+        grid-template-columns: 1fr;
+    }
+
+    .header h1 {
+        font-size: 32px;
+    }
+
+    .product img {
+        height: 250px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+
+    <div class="logo">
+        🍰 Léa Délice
+    </div>
+
+    <a href="index.html">
+        🏠 الرئيسية
+    </a>
+
+</nav>
+
+
+<section class="header">
+
+    <h1>
+        قائمتنا 🍰
+    </h1>
+
+    <p>
+        اختاري حلوياتك المفضلة وأضيفيها إلى السلة 😋
+    </p>
+
+</section>
+
+
+<section class="products">
+
+
+    <!-- CAKE -->
+
+    <div class="product">
+
+        <img src="cake.jpg" alt="Cake">
+
+        <div class="product-info">
+
+            <h2>
+                Cake 🍰
+            </h2>
+
+            <p class="description">
+                كيك لذيذ وطري بطبقة كريمية شهية.
+            </p>
+
+            <div class="price">
+                800 دج
+            </div>
+
+            <button class="cart-btn"
+                onclick="addToCart('Cake', 800)">
+                🛒 أضف إلى السلة
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- TIRAMISU -->
+
+    <div class="product">
+
+        <img src="tiramisu.jpg" alt="Tiramisu">
+
+        <div class="product-info">
+
+            <h2>
+                Tiramisu 🍮
+            </h2>
+
+            <p class="description">
+                تيراميسو كريمي بطعم القهوة اللذيذ.
+            </p>
+
+            <div class="price">
+                700 دج
+            </div>
+
+            <button class="cart-btn"
+                onclick="addToCart('Tiramisu', 700)">
+                🛒 أضف إلى السلة
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- PANCAKES -->
+
+    <div class="product">
+
+        <img src="pancakes.jpg" alt="Pancakes">
+
+        <div class="product-info">
+
+            <h2>
+                Pancakes 🥞
+            </h2>
+
+            <p class="description">
+                بانكيك طري يقدم مع الفواكه والكريمة.
+            </p>
+
+            <div class="price">
+                600 دج
+            </div>
+
+            <button class="cart-btn"
+                onclick="addToCart('Pancakes', 600)">
+                🛒 أضف إلى السلة
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- WAFFLE -->
+
+    <div class="product">
+
+        <img src="waffle.jpg" alt="Waffle">
+
+        <div class="product-info">
+
+            <h2>
+                Waffle 🧇
+            </h2>
+
+            <p class="description">
+                وافل مقرمش من الخارج وطري من الداخل.
+            </p>
+
+            <div class="price">
+                650 دج
+            </div>
+
+            <button class="cart-btn"
+                onclick="addToCart('Waffle', 650)">
+                🛒 أضف إلى السلة
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- CHEESECAKE -->
+
+    <div class="product">
+
+        <img src="cheesecake.jpg" alt="Cheesecake">
+
+        <div class="product-info">
+
+            <h2>
+                Cheesecake 🍓
+            </h2>
+
+            <p class="description">
+                تشيزكيك ناعم وكريمي مع الفواكه.
+            </p>
+
+            <div class="price">
+                750 دج
+            </div>
+
+            <button class="cart-btn"
+                onclick="addToCart('Cheesecake', 750)">
+                🛒 أضف إلى السلة
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- CREPE -->
+
+    <div class="product">
+
+        <img src="crepe.jpg" alt="Crêpe">
+
+        <div class="product-info">
+
+            <h2>
+                Crêpe 🥞
+            </h2>
+
+            <p class="description">
+                كريب بالنوتيلا والفواكه حسب اختيارك.
+            </p>
+
+            <div class="price">
+                550 دج
+            </div>
+
+            <button class="cart-btn"
+                onclick="addToCart('Crêpe', 550)">
+                🛒 أضف إلى السلة
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CART -->
+
+<section class="cart">
+
+    <h2>
+        🛒 سلة المشتريات
+    </h2>
+
+    <div id="cartItems">
+        السلة فارغة حاليًا.
+    </div>
+
+    <div class="total">
+        المجموع: <span id="total">0</span> دج
+    </div>
+
+    <a href="#" class="order-btn" onclick="confirmOrder()">
+        ✅ تأكيد الطلب
+    </a>
+
+</section>
+
+
+<footer>
+
+    © 2026 Léa Délice
+    <br>
+    صنع بحب ❤️
+
+</footer>
+
+
+<script>
+
+let cart = [];
+
+function addToCart(name, price) {
+
+    cart.push({
+        name: name,
+        price: price
+    });
+
+    updateCart();
+
+}
+
+function removeFromCart(index) {
+
+    cart.splice(index, 1);
+
+    updateCart();
+
+}
+
+function updateCart() {
+
+    const cartItems = document.getElementById("cartItems");
+    const totalElement = document.getElementById("total");
+
+    if (cart.length === 0) {
+
+        cartItems.innerHTML = "السلة فارغة حاليًا.";
+        totalElement.textContent = "0";
+
+        return;
+
+    }
+
+    let html = "";
+    let total = 0;
+
+    cart.forEach((item, index) => {
+
+        total += item.price;
+
+        html += `
+            <div class="cart-item">
+
+                <span>
+                    ${item.name} — ${item.price} دج
+                </span>
+
+                <button
+                    class="remove-btn"
+                    onclick="removeFromCart(${index})">
+
+                    حذف
+
+                </button>
+
+            </div>
+        `;
+
+    });
+
+    cartItems.innerHTML = html;
+
+    totalElement.textContent = total;
+
+}
+
+function confirmOrder() {
+
+    if (cart.length === 0) {
+
+        alert("السلة فارغة 😅 أضيفي حلوى أولًا!");
+
+        return;
+
+    }
+
+    alert(
+        "تم تجهيز طلبك ❤️\n\n" +
+        "الخطوة التالية ستكون إنشاء صفحة معلومات الزبون."
+    );
+
+}
+
+</script>
+
+</body>
+
+      </html>
