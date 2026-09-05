@@ -67,7 +67,7 @@ label {
     font-weight: bold;
 }
 
-input, textarea, select {
+input, textarea {
     width: 100%;
     box-sizing: border-box;
     padding: 13px;
@@ -82,20 +82,6 @@ textarea {
     resize: vertical;
 }
 
-.delivery {
-    margin-top: 15px;
-}
-
-.delivery label {
-    display: inline-block;
-    margin-left: 20px;
-    font-weight: normal;
-}
-
-.delivery input {
-    width: auto;
-}
-
 button {
     width: 100%;
     padding: 15px;
@@ -107,6 +93,11 @@ button {
     font-size: 18px;
     font-weight: bold;
     cursor: pointer;
+}
+
+button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
 }
 
 .success {
@@ -143,7 +134,6 @@ button {
 
     <h1>🛍️ تأكيد طلبك</h1>
 
-    <!-- ملخص الطلب -->
     <div class="box">
         <h2>🍰 طلبك</h2>
 
@@ -154,7 +144,6 @@ button {
         </div>
     </div>
 
-    <!-- معلومات الزبون -->
     <div class="box" id="customerFormBox">
 
         <h2>👤 معلومات الزبون</h2>
@@ -186,34 +175,13 @@ button {
                 <input type="text" id="address" required>
             </label>
 
-            <label>طريقة التوصيل</label>
-
-            <div class="delivery">
-
-                <label>
-                    <input type="radio"
-                           name="delivery"
-                           value="المنزل"
-                           checked>
-                    🏠 إلى المنزل
-                </label>
-
-                <label>
-                    <input type="radio"
-                           name="delivery"
-                           value="المكتب">
-                    🏢 إلى المكتب
-                </label>
-
-            </div>
-
             <label>
                 ملاحظات إضافية
                 <textarea id="notes"
-                          placeholder="مثلاً: بدون سكر، وقت مناسب للتوصيل..."></textarea>
+                    placeholder="مثلاً: وقت مناسب للتوصيل..."></textarea>
             </label>
 
-            <button type="submit">
+            <button type="submit" id="submitButton">
                 ✅ إرسال الطلب
             </button>
 
@@ -221,10 +189,9 @@ button {
 
     </div>
 
-    <!-- رسالة النجاح -->
     <div class="success" id="successBox">
 
-        <h2>🎉 تم تجهيز طلبك!</h2>
+        <h2>🎉 تم إرسال طلبك!</h2>
 
         <p>
             شكرًا لطلبك من Léa Délice ❤️
@@ -244,10 +211,19 @@ button {
 
 <script>
 
-let cart = JSON.parse(localStorage.getItem("leaCart")) || [];
+const SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycbwNLoyaHRnEONaNF--kw0crkW-rSVThmzZxZXuRopym7F917tXueq7U7b1IkGOfdhbH/exec";
 
-const orderItems = document.getElementById("orderItems");
-const orderTotal = document.getElementById("orderTotal");
+let cart =
+    JSON.parse(localStorage.getItem("leaCart")) || [];
+
+const orderItems =
+    document.getElementById("orderItems");
+
+const orderTotal =
+    document.getElementById("orderTotal");
+
+let total = 0;
 
 /* عرض المنتجات */
 
@@ -258,7 +234,6 @@ if (cart.length === 0) {
 
 } else {
 
-    let total = 0;
     let html = "";
 
     cart.forEach(function(item) {
@@ -281,7 +256,8 @@ if (cart.length === 0) {
 
 /* إرسال الطلب */
 
-document.getElementById("orderForm").addEventListener("submit", function(event) {
+document.getElementById("orderForm")
+.addEventListener("submit", function(event) {
 
     event.preventDefault();
 
@@ -292,17 +268,99 @@ document.getElementById("orderForm").addEventListener("submit", function(event) 
 
     }
 
-    const name = document.getElementById("name").value;
-    const phone = document.getElementById("phone").value;
-    const wilaya = document.getElementById("wilaya").value;
-    const commune = document.getElementById("commune").value;
-    const address = document.getElementById("address").value;
-    const notes = document.getElementById("notes").value;
+    const button =
+        document.getElementById("submitButton");
 
-    const delivery =
-        document.querySelector(
-            'input[name="delivery"]:checked'
-        ).value;
+    button.disabled = true;
+    button.textContent = "⏳ جارٍ إرسال الطلب...";
+
+
+    const name =
+        document.getElementById("name").value.trim();
+
+    const phone =
+        document.getElementById("phone").value.trim();
+
+    const wilaya =
+        document.getElementById("wilaya").value.trim();
+
+    const commune =
+        document.getElementById("commune").value.trim();
+
+    const address =
+        document.getElementById("address").value.trim();
+
+    const notes =
+        document.getElementById("notes").value.trim();
+
+
+    /* تجميع العنوان */
+
+    const fullAddress =
+        "الولاية: " + wilaya +
+        " | البلدية: " + commune +
+        " | العنوان: " + address +
+        (notes ? " | ملاحظات: " + notes : "");
+
+
+    /* أسماء المنتجات */
+
+    const products =
+        cart.map(function(item) {
+
+            return item.name + " - " +
+                   item.price + " دج";
+
+        }).join(" | ");
+
+
+    /*
+      إنشاء نموذج مخفي
+      وإرساله مباشرة إلى Google Apps Script
+    */
+
+    const form =
+        document.createElement("form");
+
+    form.method = "POST";
+    form.action = SCRIPT_URL;
+    form.target = "hiddenFrame";
+    form.style.display = "none";
+
+
+    function addField(name, value) {
+
+        const input =
+            document.createElement("input");
+
+        input.type = "hidden";
+        input.name = name;
+        input.value = value;
+
+        form.appendChild(input);
+    }
+
+
+    addField("name", name);
+    addField("phone", phone);
+    addField("address", fullAddress);
+    addField("products", products);
+    addField("total", total);
+
+
+    document.body.appendChild(form);
+
+
+    /*
+      إرسال البيانات
+    */
+
+    form.submit();
+
+
+    /*
+      حفظ آخر طلب
+    */
 
     const order = {
 
@@ -311,13 +369,9 @@ document.getElementById("orderForm").addEventListener("submit", function(event) 
         wilaya: wilaya,
         commune: commune,
         address: address,
-        delivery: delivery,
         notes: notes,
         products: cart,
-        total: cart.reduce(
-            (sum, item) => sum + Number(item.price),
-            0
-        ),
+        total: total,
         date: new Date().toLocaleString("ar-DZ")
 
     };
@@ -327,21 +381,33 @@ document.getElementById("orderForm").addEventListener("submit", function(event) 
         JSON.stringify(order)
     );
 
-    /* إخفاء نموذج المعلومات */
 
-    document.getElementById("customerFormBox").style.display = "none";
+    /*
+      إظهار رسالة النجاح
+    */
 
-    /* إظهار رسالة النجاح */
+    setTimeout(function() {
 
-    document.getElementById("successBox").style.display = "block";
+        document.getElementById(
+            "customerFormBox"
+        ).style.display = "none";
 
-    /* حذف السلة */
+        document.getElementById(
+            "successBox"
+        ).style.display = "block";
 
-    localStorage.removeItem("leaCart");
+        localStorage.removeItem("leaCart");
+
+    }, 1000);
 
 });
 
 </script>
+
+<iframe
+    name="hiddenFrame"
+    style="display:none;">
+</iframe>
 
 </body>
 </html>
