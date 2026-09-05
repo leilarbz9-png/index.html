@@ -23,8 +23,6 @@ body {
     color: #4b2630;
 }
 
-/* NAV */
-
 nav {
     background: white;
     padding: 18px 7%;
@@ -49,8 +47,6 @@ nav a {
     font-weight: bold;
 }
 
-/* HEADER */
-
 .header {
     text-align: center;
     padding: 65px 20px 40px;
@@ -70,8 +66,6 @@ nav a {
     color: #76565e;
     font-size: 17px;
 }
-
-/* PRODUCTS */
 
 .products {
     padding: 40px 7% 80px;
@@ -138,8 +132,6 @@ nav a {
     transform: scale(1.03);
 }
 
-/* CART */
-
 .cart {
     background: white;
     margin: 0 7% 60px;
@@ -192,16 +184,12 @@ nav a {
     font-weight: bold;
 }
 
-/* FOOTER */
-
 footer {
     background: #3d2028;
     color: white;
     text-align: center;
     padding: 25px;
 }
-
-/* MOBILE */
 
 @media (max-width: 800px) {
 
@@ -245,7 +233,6 @@ footer {
 
 </nav>
 
-
 <section class="header">
 
     <h1>
@@ -258,11 +245,7 @@ footer {
 
 </section>
 
-
 <section class="products">
-
-
-    <!-- CAKE -->
 
     <div class="product">
 
@@ -291,9 +274,6 @@ footer {
 
     </div>
 
-
-    <!-- TIRAMISU -->
-
     <div class="product">
 
         <img src="tiramisu.jpg" alt="Tiramisu">
@@ -320,9 +300,6 @@ footer {
         </div>
 
     </div>
-
-
-    <!-- PANCAKES -->
 
     <div class="product">
 
@@ -351,9 +328,6 @@ footer {
 
     </div>
 
-
-    <!-- WAFFLE -->
-
     <div class="product">
 
         <img src="waffle.jpg" alt="Waffle">
@@ -381,9 +355,6 @@ footer {
 
     </div>
 
-
-    <!-- CHEESECAKE -->
-
     <div class="product">
 
         <img src="cheesecake.jpg" alt="Cheesecake">
@@ -410,9 +381,6 @@ footer {
         </div>
 
     </div>
-
-
-    <!-- CREPE -->
 
     <div class="product">
 
@@ -443,9 +411,6 @@ footer {
 
 </section>
 
-
-<!-- CART -->
-
 <section class="cart">
 
     <h2>
@@ -460,12 +425,11 @@ footer {
         المجموع: <span id="total">0</span> دج
     </div>
 
-    <a href="#" class="order-btn" onclick="confirmOrder()">
+    <a href="#" class="order-btn" onclick="confirmOrder(); return false;">
         ✅ تأكيد الطلب
     </a>
 
 </section>
-
 
 <footer>
 
@@ -474,7 +438,6 @@ footer {
     صنع بحب ❤️
 
 </footer>
-
 
 <script>
 
@@ -501,12 +464,17 @@ function removeFromCart(index) {
 
 function updateCart() {
 
-    const cartItems = document.getElementById("cartItems");
-    const totalElement = document.getElementById("total");
+    const cartItems =
+        document.getElementById("cartItems");
+
+    const totalElement =
+        document.getElementById("total");
 
     if (cart.length === 0) {
 
-        cartItems.innerHTML = "السلة فارغة حاليًا.";
+        cartItems.innerHTML =
+            "السلة فارغة حاليًا.";
+
         totalElement.textContent = "0";
 
         return;
@@ -561,12 +529,14 @@ function confirmOrder() {
         JSON.stringify(cart)
     );
 
-    window.location.href =
-        "https://forms.gle/YyjGhnMN5p8dJguo9";
+    /* الذهاب إلى صفحة الطلب داخل الموقع */
 
-        }
+    window.location.href = "order.html";
+
+}
+
 </script>
 
 </body>
 
-      </html>
+</html>
