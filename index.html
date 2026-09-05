@@ -8,109 +8,261 @@
     <title>Léa Délice | حلويات تُصنع بحب</title>
 
     <style>
+
         * {
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            margin: 0;
             font-family: Arial, sans-serif;
-            background: #fff7f3;
+            background: #fff8f5;
             color: #4a3030;
+            overflow-x: hidden;
         }
 
-        /* الصفحة الافتتاحية */
+
+        /* الشريط العلوي */
+
+        .top-bar {
+            background: #8f4056;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+
+
+        /* القائمة */
+
+        nav {
+            width: 100%;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255,255,255,0.9);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.06);
+        }
+
+        .brand {
+            font-size: 25px;
+            font-weight: bold;
+            color: #9d4058;
+        }
+
+        .brand span {
+            font-size: 28px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #5a3b3b;
+            font-weight: bold;
+        }
+
+
+        /* الواجهة الرئيسية */
 
         .hero {
             min-height: 75vh;
+            padding: 70px 20px;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
             text-align: center;
-            padding: 40px 20px;
 
-            background: linear-gradient(
-                135deg,
-                #fff0e8,
-                #fde1dc,
-                #fff7f3
-            );
+            background:
+                radial-gradient(circle at 15% 20%, #ffd7df 0 7%, transparent 8%),
+                radial-gradient(circle at 85% 70%, #ffe0b8 0 8%, transparent 9%),
+                linear-gradient(135deg, #fff0f3, #ffe8df, #fff7ed);
+        }
+
+        .hero-content {
+            max-width: 750px;
         }
 
         .logo {
-            font-size: 65px;
+            font-size: 75px;
             margin-bottom: 10px;
+            animation: floating 3s ease-in-out infinite;
         }
 
-        h1 {
-            font-size: 48px;
-            margin: 10px 0;
+        @keyframes floating {
+
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
         }
 
-        .welcome {
+        .hero h1 {
+            font-size: 52px;
+            color: #8f4056;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 span {
+            color: #d47b8d;
+        }
+
+        .hero-text {
             font-size: 21px;
-            line-height: 1.9;
-            max-width: 650px;
-            margin: 10px auto 30px;
-            color: #705858;
+            line-height: 2;
+            color: #684f4f;
+            margin-bottom: 30px;
         }
 
         .order-button {
             display: inline-block;
             text-decoration: none;
-            background: #b86b77;
+            background: #b94f69;
             color: white;
-            padding: 16px 38px;
-            border-radius: 35px;
+            padding: 16px 40px;
+            border-radius: 40px;
             font-size: 19px;
+            font-weight: bold;
+            box-shadow: 0 8px 20px rgba(185,79,105,0.25);
             transition: 0.3s;
         }
 
         .order-button:hover {
-            transform: scale(1.05);
+            transform: translateY(-4px) scale(1.03);
         }
 
 
-        /* قسم حلوياتنا */
+        /* عن المتجر */
+
+        .about {
+            padding: 70px 20px;
+            text-align: center;
+            background: white;
+        }
+
+        .section-title {
+            font-size: 34px;
+            color: #8f4056;
+            margin-bottom: 18px;
+        }
+
+        .section-line {
+            width: 70px;
+            height: 4px;
+            background: #e39a9f;
+            margin: 0 auto 25px;
+            border-radius: 20px;
+        }
+
+        .about-text {
+            max-width: 700px;
+            margin: auto;
+            line-height: 2;
+            font-size: 18px;
+            color: #725c5c;
+        }
+
+
+        /* مميزات المتجر */
+
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            padding: 45px 20px;
+            background: #fff0eb;
+        }
+
+        .feature {
+            width: 210px;
+            padding: 25px 15px;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 8px 25px rgba(120,70,70,0.08);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .feature h3 {
+            margin-bottom: 8px;
+            color: #9d4058;
+        }
+
+        .feature p {
+            color: #766161;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+
+        /* قسم الحلويات */
 
         .gallery-section {
-            padding: 55px 0 70px;
+            padding: 70px 0;
             overflow: hidden;
+            background: #fff8f5;
         }
 
-        .gallery-title {
+        .gallery-heading {
             text-align: center;
-            font-size: 32px;
-            margin-bottom: 30px;
+            padding: 0 20px;
+            margin-bottom: 35px;
+        }
+
+        .gallery-heading p {
+            color: #765e5e;
+            margin-top: 10px;
         }
 
         .gallery {
             display: flex;
-            gap: 20px;
+            gap: 22px;
             width: max-content;
-            animation: move 25s linear infinite;
+            animation: slide 30s linear infinite;
         }
 
         .sweet {
-            width: 230px;
-            height: 170px;
-            border-radius: 20px;
+            width: 260px;
+            flex-shrink: 0;
+            background: white;
+            border-radius: 25px;
             overflow: hidden;
-            background: #f1d8d2;
+            box-shadow: 0 8px 25px rgba(90,50,50,0.12);
+        }
+
+        .sweet-image {
+            height: 190px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 22px;
+            font-size: 55px;
+            background: #ffe1df;
         }
 
-        .sweet img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .sweet-info {
+            padding: 17px;
+            text-align: center;
         }
 
-        @keyframes move {
+        .sweet-info h3 {
+            color: #914056;
+            font-size: 21px;
+        }
+
+        @keyframes slide {
+
             from {
                 transform: translateX(0);
             }
@@ -118,6 +270,44 @@
             to {
                 transform: translateX(-50%);
             }
+
+        }
+
+
+        /* الدعوة للطلب */
+
+        .final-order {
+            text-align: center;
+            padding: 70px 20px;
+            background: linear-gradient(135deg, #9f465d, #c86f7d);
+            color: white;
+        }
+
+        .final-order h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .final-order p {
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        .final-order .order-button {
+            background: white;
+            color: #9f465d;
+            box-shadow: none;
+        }
+
+
+        /* الفوتر */
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #4b3035;
+            color: #ffe9e5;
+            font-size: 14px;
         }
 
 
@@ -125,97 +315,362 @@
 
         @media (max-width: 600px) {
 
+            nav {
+                padding: 15px 20px;
+            }
+
+            .brand {
+                font-size: 20px;
+            }
+
+            nav a {
+                font-size: 14px;
+            }
+
             .hero {
                 min-height: 70vh;
+                padding: 55px 20px;
             }
 
             .logo {
-                font-size: 50px;
+                font-size: 60px;
             }
 
-            h1 {
-                font-size: 36px;
+            .hero h1 {
+                font-size: 38px;
             }
 
-            .welcome {
+            .hero-text {
                 font-size: 18px;
             }
 
-            .gallery-title {
-                font-size: 28px;
+            .section-title {
+                font-size: 29px;
             }
 
             .sweet {
-                width: 190px;
-                height: 140px;
+                width: 220px;
             }
+
+            .sweet-image {
+                height: 160px;
+            }
+
         }
+
     </style>
+
 </head>
 
 
 <body>
 
-    <!-- الصفحة الافتتاحية -->
+
+    <!-- شريط الترحيب -->
+
+    <div class="top-bar">
+        ✨ حلويات طازجة تُحضّر بحب كل يوم ✨
+    </div>
+
+
+    <!-- القائمة -->
+
+    <nav>
+
+        <div class="brand">
+            🍰 Léa Délice
+        </div>
+
+        <a href="#about">
+            من نحن
+        </a>
+
+    </nav>
+
+
+    <!-- الواجهة الرئيسية -->
 
     <section class="hero">
 
-        <div class="logo">
-            🍰
+        <div class="hero-content">
+
+            <div class="logo">
+                🧁
+            </div>
+
+            <h1>
+                مرحبًا بك في
+                <span>Léa Délice</span>
+            </h1>
+
+            <p class="hero-text">
+                حلويات تُصنع بحب ❤️
+                <br>
+                نكهات لذيذة، تفاصيل جميلة،
+                ولحظات حلوة تستحق أن تُحتفل بها.
+            </p>
+
+            <a href="products.html" class="order-button">
+                اطلب الآن 🛍️
+            </a>
+
         </div>
 
-        <h1>
-            Léa Délice
-        </h1>
+    </section>
 
-        <p class="welcome">
-            حلويات تُصنع بحب ❤️
-            <br>
-            نكهات مميزة، تفاصيل جميلة،
-            ولحظات تستحق أن تُحتفل بها.
+
+    <!-- عن المتجر -->
+
+    <section class="about" id="about">
+
+        <h2 class="section-title">
+            قصتنا 🍓
+        </h2>
+
+        <div class="section-line"></div>
+
+        <p class="about-text">
+            في Léa Délice نؤمن أن قطعة حلوى صغيرة
+            يمكن أن تجعل يومك أجمل.
+            نختار مكوناتنا بعناية ونحضّر حلوياتنا
+            بشغف لنقدم لك مذاقًا لا يُنسى.
+        </p>
+
+    </section>
+
+
+    <!-- مميزات -->
+
+    <section class="features">
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                🍓
+            </div>
+
+            <h3>
+                مكونات طازجة
+            </h3>
+
+            <p>
+                نحرص على اختيار مكونات عالية الجودة.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                👩‍🍳
+            </div>
+
+            <h3>
+                محضرة بحب
+            </h3>
+
+            <p>
+                كل حلوى تُحضّر بعناية واهتمام.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                🚚
+            </div>
+
+            <h3>
+                توصيل
+            </h3>
+
+            <p>
+                اطلب ما تحب وسنهتم بالباقي.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- الحلويات -->
+
+    <section class="gallery-section">
+
+        <div class="gallery-heading">
+
+            <h2 class="section-title">
+                حلوياتنا 🍰
+            </h2>
+
+            <div class="section-line"></div>
+
+            <p>
+                اكتشف بعضًا من أشهى ما نقدمه
+            </p>
+
+        </div>
+
+
+        <div class="gallery">
+
+
+            <div class="sweet">
+
+                <div class="sweet-image">
+                    🎂
+                </div>
+
+                <div class="sweet-info">
+                    <h3>كعكة Cake</h3>
+                </div>
+
+            </div>
+
+
+            <div class="sweet">
+
+                <div class="sweet-image">
+                    ☕
+                </div>
+
+                <div class="sweet-info">
+                    <h3>تيراميسو Tiramisu</h3>
+                </div>
+
+            </div>
+
+
+            <div class="sweet">
+
+                <div class="sweet-image">
+                    🥞
+                </div>
+
+                <div class="sweet-info">
+                    <h3>بانكيك Pancakes</h3>
+                </div>
+
+            </div>
+
+
+            <div class="sweet">
+
+                <div class="sweet-image">
+                    🧇
+                </div>
+
+                <div class="sweet-info">
+                    <h3>وافل Waffle</h3>
+                </div>
+
+            </div>
+
+
+            <div class="sweet">
+
+                <div class="sweet-image">
+                    🍰
+                </div>
+
+                <div class="sweet-info">
+                    <h3>تشيز كيك Cheesecake</h3>
+                </div>
+
+            </div>
+
+
+            <div class="sweet">
+
+                <div class="sweet-image">
+                    🥞
+                </div>
+
+                <div class="sweet-info">
+                    <h3>كريب Crêpe</h3>
+                </div>
+
+            </div>
+
+
+            <!-- تكرار العناصر لاستمرار الحركة -->
+
+            <div class="sweet">
+
+                <div class="sweet-image">
+                    🎂
+                </div>
+
+                <div class="sweet-info">
+                    <h3>كعكة Cake</h3>
+                </div>
+
+            </div>
+
+
+            <div class="sweet">
+
+                <div class="sweet-image">
+                    ☕
+                </div>
+
+                <div class="sweet-info">
+                    <h3>تيراميسو Tiramisu</h3>
+                </div>
+
+            </div>
+
+
+            <div class="sweet">
+
+                <div class="sweet-image">
+                    🥞
+                </div>
+
+                <div class="sweet-info">
+                    <h3>بانكيك Pancakes</h3>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- زر الطلب الأخير -->
+
+    <section class="final-order">
+
+        <h2>
+            هل اشتهيت شيئًا؟ 😋
+        </h2>
+
+        <p>
+            اختر حلوياتك ودعنا نهتم بالباقي.
         </p>
 
         <a href="products.html" class="order-button">
-            اطلب الآن 🛍️
+            اكتشف القائمة 🛍️
         </a>
 
     </section>
 
 
-    <!-- معرض الحلويات -->
+    <!-- أسفل الموقع -->
 
-    <section class="gallery-section">
+    <footer>
 
-        <h2 class="gallery-title">
-            حلوياتنا 🍰
-        </h2>
+        © 2026 Léa Délice
+        <br>
+        صنع بحب ❤️
 
-        <div class="gallery">
+    </footer>
 
-            <div class="sweet">🍓 كيك الفراولة</div>
-
-            <div class="sweet">🍫 كيك الشوكولاتة</div>
-
-            <div class="sweet">🧁 كب كيك</div>
-
-            <div class="sweet">🍪 كوكيز</div>
-
-            <div class="sweet">🥐 كرواسون</div>
-
-            <div class="sweet">🍰 تشيز كيك</div>
-
-            <!-- تكرار الصور لجعل الشريط مستمرًا -->
-
-            <div class="sweet">🍓 كيك الفراولة</div>
-
-            <div class="sweet">🍫 كيك الشوكولاتة</div>
-
-            <div class="sweet">🧁 كب كيك</div>
-
-        </div>
-
-    </section>
 
 </body>
 
-</html>
+    </html>
