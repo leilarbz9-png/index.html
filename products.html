@@ -556,13 +556,14 @@ function confirmOrder() {
 
     }
 
-    alert(
-        "تم تجهيز طلبك ❤️\n\n" +
-        "الخطوة التالية ستكون إنشاء صفحة معلومات الزبون."
+    localStorage.setItem(
+        "leaCart",
+        JSON.stringify(cart)
     );
 
-}
+    window.location.href = "order.html";
 
+}
 </script>
 
 </body>
